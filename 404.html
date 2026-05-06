@@ -1,182 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OMEGA™ | 404 - Diagnostic Error</title>
-    <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
-    <link rel="stylesheet" href="shared_resources/website_template/constellation-base.css" />
-    <link rel="stylesheet" href="css/omega-theme.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <style>
-        :root {
-            --medical-pulse: #00ff88;
-            --critical-red: #ff4444;
-            --system-text: #f0f0f0;
-        }
-
-        body {
-            background-color: #0a1a0a;
-            color: var(--system-text);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        .error-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .error-code {
-            font-size: clamp(8rem, 20vw, 12rem);
-            font-weight: 800;
-            line-height: 1;
-            margin: 0;
-            background: linear-gradient(180deg, var(--medical-pulse) 0%, rgba(0, 255, 136, 0.2) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
-        }
-
-        .glitch-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 255, 136, 0.03) 0px,
-                rgba(0, 255, 136, 0.03) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            pointer-events: none;
-        }
-
-        .medical-alert-box {
-            border: 1px solid var(--critical-red);
-            background: rgba(255, 68, 68, 0.05);
-            padding: 1.5rem 2.5rem;
-            border-radius: 4px;
-            margin: 2rem 0;
-            max-width: 600px;
-            backdrop-filter: blur(10px);
-            animation: pulse-border 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse-border {
-            0%, 100% { border-color: var(--critical-red); }
-            50% { border-color: rgba(255, 68, 68, 0.3); }
-        }
-
-        .system-trace {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: var(--medical-pulse);
-            opacity: 0.6;
-            margin-top: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2.5rem;
-            background: var(--medical-pulse);
-            color: #0a1a0a;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
-            filter: brightness(1.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMEGA™ | 404 — Diagnostic Error</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
+  <link rel="stylesheet" href="shared_resources/website_template/constellation-base.css" />
+  <link rel="stylesheet" href="css/omega-theme.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- Neural Grid Background -->
-    <div class="neural-grid-bg"></div>
-    <div class="glitch-overlay"></div>
-    
-    <!-- Visitor Counter (Reused for Status) -->
-    <div class="visitor-counter">
-        <span class="status-dot" style="background: var(--critical-red);"></span>
-        System Status: <span id="visitor-count">PATH_NOT_FOUND</span>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Neural Grid Background -->
+  <div class="neural-grid-bg" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo-container" aria-label="OMEGA Home">
+        <div class="logo-word">OMEGA</div>
+        <img class="logo-icon" src="img/logo.svg" alt="" />
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#portal" class="nav-link">Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="section section--hero" role="main" data-aos="zoom-in">
+    <div style="font-family: var(--font-display); font-size: clamp(6rem, 18vw, 10rem); font-weight: 800; line-height: 1; margin-bottom: var(--space-4); background: linear-gradient(180deg, var(--color-primary) 0%, rgba(0, 230, 138, 0.15) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(0, 230, 138, 0.2));">
+      404
     </div>
 
-    <!-- Header Navigation (Simplified) -->
-    <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 26, 10, 0.9); backdrop-filter: blur(10px); padding: 1rem 2rem;">
-        <nav style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="logo-container">
-                <div class="logo-word">OMEGA</div>
-                <img class="logo-icon" src="img/logo.svg" alt="OMEGA Icon" />
-            </div>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" style="color: var(--system-text); text-decoration: none; transition: color 0.3s;">Home</a>
-                <a href="index.html#portal" style="color: var(--system-text); text-decoration: none; transition: color 0.3s;">Portal</a>
-            </div>
-        </nav>
-    </header>
+    <div class="emergency-banner" style="max-width: 600px; margin: var(--space-6) auto;">
+      <h3 class="emergency-banner__title">Diagnostic Failure</h3>
+      <p class="emergency-banner__desc">
+        The requested neural pathway or medical record fragment could not be located in the OMEGA Central Intelligence Core. The data may have been purged or relocated during a system synchronization.
+      </p>
+    </div>
 
-    <main class="error-container" data-aos="zoom-in">
-        <h1 class="error-code">404</h1>
-        
-        <div class="medical-alert-box">
-            <h2 style="color: var(--critical-red); margin-top: 0;">⚠️ DIAGNOSTIC FAILURE</h2>
-            <p style="margin-bottom: 0;">
-                The requested neural pathway or medical record fragment could not be located in the OMEGA Central Intelligence Core. The data may have been purged or relocated during a system synchronization.
-            </p>
-        </div>
+    <p style="font-size: var(--text-base); max-width: 500px; margin: 0 auto var(--space-8); color: var(--color-text-muted);">
+      Please re-initialize your connection or return to the primary medical dashboard.
+    </p>
 
-        <p style="font-size: 1.1rem; max-width: 500px; opacity: 0.8;">
-            Please re-initialize your connection or return to the primary medical dashboard.
-        </p>
+    <a href="index.html" class="btn btn--primary">Return to Console</a>
 
-        <a href="index.html" class="back-button">Return to Console</a>
+    <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-12); letter-spacing: var(--tracking-widest); text-transform: uppercase;">
+      Trace ID: ERR_NODE_ABSENT // SEQ_404_OMEGA_ALPHA
+    </div>
 
-        <div class="system-trace">
-            Trace ID: ERR_NODE_ABSENT // SEQ_404_OMEGA_ALPHA
-        </div>
+    <div class="status-pills" style="margin-top: var(--space-8); opacity: 0.5;">
+      <div class="status-pill status-pill--critical">
+        <span class="status-dot"></span>
+        Path Unresolved
+      </div>
+      <div class="status-pill status-pill--brain">
+        <span class="status-dot"></span>
+        Core Systems Online
+      </div>
+    </div>
+  </main>
 
-        <!-- Live Status Indicators (Reused) -->
-        <div class="live-status" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 4rem; opacity: 0.5;">
-            <div class="medical-status critical">
-                <div class="status-dot"></div>
-                Path Unresolved
-            </div>
-            <div class="medical-status brain">
-                <div class="status-dot"></div>
-                Core Systems Online
-            </div>
-        </div>
-    </main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Simple typing effect for the trace ID or status
-        console.log('🏥 OMEGA 404 Handler Active');
-    </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    console.log('🏥 OMEGA 404 Handler Active');
+  </script>
 </body>
 </html>
