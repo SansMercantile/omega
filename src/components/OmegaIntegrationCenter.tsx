@@ -1538,7 +1538,7 @@ This wellness pattern matches **Anubis** Cellular Lifecycle supervision for cell
                               {meeting.meetingUri}
                             </a>
                             <p className="text-[10px] text-slate-500 font-light leading-relaxed">
-                              Invite clinic participants, specialists Dr. Stephen Ray or Mezzoforte Khoza, to take over real-time diagnosis.
+                              Invite clinic participants, specialists Dr. Stephen Ray to take over real-time diagnosis.
                             </p>
                           </div>
                         )}

@@ -137,7 +137,7 @@ export const fetchGoogleContacts = async (token: string): Promise<Contact[]> => 
     console.warn("Failed to query live contacts database, returning safe clinic default list.", error);
     return [
       { id: "c1", name: "Dr. Stephen Ray", email: "sray@sansmercantile.com", phone: "+27 (21) 555-0102" },
-      { id: "c2", name: "Mezzoforte Privilege Khoza, Sr.", email: "mkhoza.sr@sansmercantile.com", phone: "+27 (21) 555-0199" },
+      { id: "c2", name: "Mezzoforte Privilege Khoza, Sr.", email: "mezzoforte@sansmercantile.com", phone: "+27 (66) 349-6137" },
       { id: "c3", name: "Omega Emergency Bio-Defense Desk", email: "bio-alert@sansmercantile.com", phone: "+1 (800) 555-OM-AID" },
     ];
   }

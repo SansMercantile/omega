@@ -474,8 +474,8 @@ export default function IoTStreamDashboard() {
 
     <div class="signature-grid">
       <div class="signature-line">
-        <strong>Dr. Stephen Ray MD</strong><br>
-        Lead Clinician &amp; bio-defense coordinator<br>
+        <strong>C. Maddison</strong><br>
+        Chief Business Development Officer &amp; Executive Partner<br>
         SANS MERCANTILE SYSTEMS
       </div>
       <div class="signature-line">

@@ -309,8 +309,8 @@ export default function SpecConfigurator() {
                         S. Ray
                       </div>
                       <div className="text-[8px] font-mono text-slate-400 uppercase leading-none mt-1.5">
-                        Dr. Stephen Ray<br />
-                        Lead Cryptographer
+                        <br />
+                        
                       </div>
                     </div>
                   </div>
