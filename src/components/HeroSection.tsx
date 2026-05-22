@@ -125,7 +125,7 @@ export default function HeroSection() {
               Clinical Configurator
             </h4>
             <p className="text-slate-450 text-slate-500 text-xs leading-relaxed">
-              Compile regional clinic deployment specs endorsed by M.P. Khoza, Sr. & Dr. Stephen Ray.
+              Compile regional clinic deployment specs endorsed by M.P. Khoza, Sr.
             </p>
           </div>
           <span className="text-[10px] font-mono text-slate-900 mt-6 flex items-center gap-1.5 font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform">

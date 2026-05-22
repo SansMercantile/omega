@@ -418,7 +418,7 @@ export default function App() {
                     <Cpu className="h-4 w-4 text-slate-950" /> SECTION 05 // CLINICAL CORE CONFIGURATOR
                   </h3>
                   <p className="text-slate-500 text-xs leading-relaxed font-light">
-                    Build a custom regional clinical AI specification file. Export clinical placement charters endorsed by founder M.P. Khoza, Sr. & lead cryptographer Dr. Stephen Ray.
+                    Build a custom regional clinical AI specification file. Export clinical placement charters endorsed by founder M.P. Khoza, Sr.
                   </p>
                 </div>
                 <SpecConfigurator />
@@ -496,7 +496,7 @@ export default function App() {
               Regulatory Compliance Authority: SADC, SARS, FATCA, GDPR.
             </div>
             <div className="text-left md:text-right">
-              Coordinated by Chairman Council <strong className="text-slate-800">Mezzoforte Privilege Khoza, Sr.</strong> & <strong className="text-slate-800">Dr. Stephen Ray</strong>.
+              Coordinated by Chairman Council <strong className="text-slate-800">Mezzoforte Privilege.</strong> <strong className="text-slate-800"></strong>.
             </div>
           </div>
         </div>
