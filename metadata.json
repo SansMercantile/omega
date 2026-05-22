@@ -1,0 +1,6 @@
+{
+  "name": "Sans Mercantile Omega System",
+  "description": "Interactive digital advertisement and clinical intelligence console for the Omega Medical AI Ecosystem, a core system within the Sans Mercantile network.",
+  "requestFramePermissions": ["camera", "microphone", "bluetooth"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
