@@ -195,6 +195,11 @@ export const OMEGA_FEATURES = [
     title: "Health Restoration System",
     icon: "Hammer",
     description: "Coordinates just-in-time nanotherapeutic interventions and custom medicine delivery via Ptah print-nodes located directly within local clinic hubs."
+  },
+  {
+    title: "VeinViewer Integration",
+    icon: "Eye",
+    description: "Utilizes near-infrared (NIR) imaging technology to project live vein maps directly onto the skin, reducing missed needles and stress for patients during IV access and blood draws."
   }
 ];
 
