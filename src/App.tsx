@@ -21,6 +21,7 @@ import {
   Grid,
   HeartPulse
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 
 import HeroSection from "./components/HeroSection";
 import PartnersSection from "./components/PartnersSection";
@@ -501,6 +502,7 @@ export default function App() {
           </div>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 }
