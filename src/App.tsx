@@ -256,6 +256,9 @@ export default function App() {
               {/* Strategic AI Partners Section */}
               <PartnersSection />
 
+              {/* Live backend capability registry */}
+              <CapabilityStatus />
+
               {/* Core Operational Pillars (Bento-like features block) */}
               <section id="pillars" className="space-y-10">
                 <div className="text-center max-w-2xl mx-auto">

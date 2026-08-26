@@ -53,7 +53,7 @@ export default function HeroSection() {
           OMEGA<span className="text-slate-350 text-orange-500">.</span>
         </h1>
         <p className="font-mono text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed uppercase tracking-wider">
-          The revolutionary medical AI ecosystem of the global biosphere.
+          A connected clinical-analysis platform for real data, explicit uncertainty, and human-reviewed care workflows.
         </p>
       </motion.div>
 

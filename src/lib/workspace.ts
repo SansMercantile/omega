@@ -256,13 +256,8 @@ export const createMeetSpace = async (token: string): Promise<MeetingDetails> =>
       meetingUri: data.meetingUri || "https://meet.google.com/new",
     };
   } catch (err) {
-    console.warn("Live consultation space API call denied or scopes locked, generating secure workspace join URL.", err);
-    // Return a secure clinical meet session
-    const randomUrlId = Math.random().toString(36).substring(2, 5) + "-" + Math.random().toString(36).substring(2, 6) + "-" + Math.random().toString(36).substring(2, 5);
-    return {
-      spaceName: "Omega Diagnosis Cabin 01",
-      meetingUri: `https://meet.google.com/oma-meet-${randomUrlId}`,
-    };
+    console.error("Live Google Meet integration unavailable.", err);
+    throw new Error("Live Google Meet integration is unavailable.");
   }
 };
 

@@ -340,9 +340,17 @@ export default function OmegaDiagnosisChat() {
         text: m.text
       }));
 
+      const localProfile = auth.currentUser ? getLocalProfile(auth.currentUser.uid) : null;
       const payload: any = {
         prompt: `Pain scale is recorded at ${painLevel}/10. Symptoms: ${userMessageText}`,
-        history: historyPayload
+        history: historyPayload,
+        patient_profile: {
+          species: "human",
+          age: 0,
+          weight: 0,
+          allergies: localProfile?.allergies ? localProfile.allergies.split(",").map((value) => value.trim()) : [],
+          current_conditions: localProfile?.conditions ? [localProfile.conditions] : [],
+        }
       };
 
       if (fileToUpload) {
@@ -382,7 +390,7 @@ export default function OmegaDiagnosisChat() {
         {
           id: Math.random().toString(),
           role: "model",
-          text: `### ❌ CONNECTION OFFLINE\n\nFailed to sync with the diagnostic cluster. Please verify your GEMINI_API_KEY is configured under Secrets, or consult standard health services.`,
+          text: `### ❌ DIAGNOSTIC SERVICE UNAVAILABLE\n\nThe real medical-analysis service could not be reached. No diagnosis or treatment recommendation was generated. Verify the OMEGA backend connection and consult a qualified healthcare professional for medical concerns.`,
           timestamp: responseTimestamp
         }
       ]);
@@ -469,10 +477,10 @@ export default function OmegaDiagnosisChat() {
           </span>
         </div>
         <h3 className="text-3xl font-black text-slate-950 tracking-tight leading-none uppercase">
-          Autonomous Clinical Diagnosis
+          Clinical Analysis (Advisory)
         </h3>
         <p className="text-slate-500 text-sm leading-relaxed mt-2 font-light max-w-2xl">
-          Describe symptoms, input somatic pain scales, or attach photographic/clinical trial ledgers (supports JPEG, PNG, medical logs). Omega will synthesize biological cure templates and formulate clinical path blueprints.
+          Describe symptoms or attach records for advisory review. The service returns general information and care-routing guidance; it does not diagnose, prescribe, or synthesize cures.
         </p>
       </div>
 

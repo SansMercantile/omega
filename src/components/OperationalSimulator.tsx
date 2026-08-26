@@ -100,14 +100,14 @@ export default function OperationalSimulator() {
             <div className="flex items-center gap-2 mb-4">
               <span className="h-1.5 w-1.5 rounded-full bg-slate-900 animate-ping" />
               <span className="text-[10px] uppercase font-mono tracking-[0.2em] text-slate-400 font-bold">
-                Clinical Simulation Console
+                Operational Test Console
               </span>
             </div>
             <h3 className="text-3xl font-black text-slate-950 tracking-tight leading-none mb-4">
               Treatment Simulator
             </h3>
             <p className="text-slate-500 text-sm leading-relaxed mb-6 font-light">
-              Stress-test the real-time epidemiological containment of the Omega medical system. Trigger active drug synthesis sweeps, simulate global sensor warnings, and audit the clinical trial ledgers dynamically.
+              Exercise the software workflow with test fixtures. No drug is synthesized, no patient treatment is performed, and no sensor warning is a clinical measurement.
             </p>
 
             {/* Simulated Live Controls */}

@@ -689,8 +689,7 @@ export default function OmegaIntegrationCenter() {
       // High fidelity fallback matching user's specific symptoms ("spots on face")
       console.warn("Simulated fallback activated for secure offline compatibility.");
       
-      const isSpotsQuery = /spots|blemish|skin|acne|rash|face/i.test(queryText);
-      let simulatedResponse = "";
+      const unavailableResponse = "### CLINICAL ANALYSIS UNAVAILABLE\n\nNo visual finding or treatment recommendation was generated because the connected clinical-analysis service could not be reached. Please consult a qualified healthcare professional for medical concerns.";
 
       if (isSpotsQuery) {
         simulatedResponse = `### OMEGA AUTOMUTUAL CLINICAL REPORT: EPIDERMAL SPOT DEVIATION
@@ -781,7 +780,7 @@ This wellness pattern matches **Anubis** Cellular Lifecycle supervision for cell
       saveServiceLog(logAction);
       setDbLogs([logAction, ...dbLogs]);
       setSyncingDb(false);
-      setToastMsg({ type: "success", text: `Active health telemetry compiled & loaded into ${activeDb} successfully!` });
+      setToastMsg({ type: "success", text: `Telemetry accepted by the OMEGA backend; external database persistence is reported separately.` });
     }, 1500);
   };
 
@@ -1089,7 +1088,7 @@ This wellness pattern matches **Anubis** Cellular Lifecycle supervision for cell
                         </h4>
                         
                         <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                          Your profile indices are encrypted and cached locally utilizing in-memory token bounds. Telemetry events and simulated diagnoses are dispatched straight to your certified database: <strong className="text-slate-950">{profile.selectedDatabase}</strong>.
+                          Your profile indices are cached locally. Telemetry and analysis records are sent to <strong className="text-slate-950">{profile.selectedDatabase}</strong> only after that external integration is configured and confirms the write.
                         </p>
 
                         <div className="grid grid-cols-2 gap-4 text-[11px] font-mono pt-2">
@@ -1918,6 +1917,52 @@ This wellness pattern matches **Anubis** Cellular Lifecycle supervision for cell
                       </div>
                     </div>
                   </div>
+                </motion.div>
+              )}
+
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+>
+      )}
+    </div>
+  );
+}
+           </div>
+                </motion.div>
+              )}
+
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+>
+      )}
+    </div>
+  );
+}
+           </div>
                 </motion.div>
               )}
 

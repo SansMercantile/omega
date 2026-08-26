@@ -43,16 +43,29 @@ async function startServer() {
   // API Endpoint: Diagnose Symptom Pathway & Synthesize Cure
   app.post("/api/diagnose", async (req, res) => {
     try {
-      const { prompt, history, file } = req.body;
+      const { prompt, history, file, patient_profile } = req.body;
+      const backendUrl = process.env.OMEGA_BACKEND_URL?.replace(/\/$/, "");
+
+      if (backendUrl) {
+        const backendResponse = await fetch(`${backendUrl}/api/diagnose`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt, history, file, patient_profile }),
+        });
+        const responseBody = await backendResponse.text();
+        res.status(backendResponse.status).type("application/json").send(responseBody);
+        return;
+      }
+
       const client = getGeminiClient();
 
-      const systemInstruction = `You are Omega, the revolutionary autonomous Medical AI core of the Sans Mercantile constellation.
-You are a highly professional, clinical-grade medical diagnosis and cure-synthesis engine.
+      const systemInstruction = `You are the OMEGA advisory clinical-information assistant.
+Do not diagnose, prescribe, claim a cure, or invent test results. State uncertainty and recommend professional care.
 A user has provided details of what they are experiencing (symptoms, pain details, and potentially uploaded medical images, documents, or logs).
 
 Analyze the input thoroughly:
 1. "PATHOLOGY ANALYSIS & DIAGNOSIS TARGETS": Discuss possibilities, severity levels, and clinical warnings. Keep it objective, professional, and empathetic yet direct.
-2. "SUGGESTED CURES & ANTIMICROBIAL Blueprints": Discuss standard epigenetic therapies, standard over-the-counter or clinical treatments, lifestyle changes, and simulated custom Molecular Peptide structures (keeping with the Omega's high-tech sci-fi branding).
+2. "INFORMATION & NEXT STEPS": Discuss only evidence-based general information, questions to ask a clinician, reasonable monitoring, and when to seek urgent care. Never provide a custom drug, peptide, cure, dosage, or prescription.
 3. "OMEGA SYSTEM CLASSIFICATION": Categorize their case under one of our systems (e.g. Sekhmet for Immune security, Hathor for Aesthetic/Cellular, Anubis for cellular lifecycle, Hapi for hydraulic diagnostics, etc.).
 4. Urgent/Severe Cases: Always output a disclaimer warning them to consult physical physician/emergency services immediately if indicators are severe.
 
@@ -95,38 +108,19 @@ Format in clean markdown with elegant headings.`;
           }
         });
 
-        res.json({ text: response.text });
+        res.json({
+          text: response.text,
+          provider: "gemini",
+          simulation: false,
+          timestamp: new Date().toISOString(),
+        });
       } else {
-        // High fidelity mock fallback
-        console.log("[Omega Server] No API key detected. Using high-fidelity heuristic simulation lookup.");
-        const containsUrgentKeywords = /chest pain|heart|breathing|severe|unconscious|bleed|stroke/i.test(prompt);
-        
-        let textOutput = `### OMEGA AUTONOMOUS RECONSTRUCTION REPORT (SIMULATION MODE)
-*Operational Alert: Running on primary bio-modelling heuristic network.*
-
-#### 1. PATHOLOGY DIAGNOSTIC CODES & CLINICAL HYPOTHESES
-*   **Identified Symptoms:** Analysis of symptoms ("${prompt.slice(0, 100)}...") shows structural strain indicators.
-*   **Sensing Integrity Check:** 98.4% local telemetry confidence.
-*   **Calculated Pathological Vectors:**
-    *   *Primary:* Structural tissue strain, micro-vascular contraction, or mild inflammatory response.
-    *   *Secondary:* Systemic fatigue index elevated due to somatic/metabolic overheads.
-
-#### 2. THERAPEUTIC BLUEPRINT & TARGET CURES
-*   **Custom Micro-Peptide Structure Synthesis:**
-    *   *Therapeutic Name:* Peptide-OMEGA-422-alpha (Epigenetic Histone Regulator)
-    *   *Action Mechanism:* Initiates targeted enzymatic correction across cellular boundaries to accelerate repair cycles.
-*   **Supportive Regimen:**
-    *   *Somatic Rest Matrix:* 24 to 48 hours of targeted decompression of active zones.
-    *   *Thermal Contrast Sessions:* Alternating standard thermal applications (20 mins cool, 15 mins warm).
-    *   *Biochemical Balance:* Hydration streams infused with clean mineral complexes.
-
-#### 3. OMEGA CLASSIFICATION CORRELATION
-This diagnosis pattern maps to **Anubis Cellular Lifecycle** oversight for systemic restoration and **Hathor Cellular Aesthetics & Matrix Restoration** profile for structural tissue integrity.
-
----
-${containsUrgentKeywords ? `⚠️ **CRITICAL PRIORITY ALARM:** Indicators trigger cardiac or neurological risk thresholds. High distress requires an immediate direct real-time physical medical practitioner audit or Emergency Response deployment.` : `*Note: This autonomous advisory does not replace a physical physician's clinical verification. Please consult physical healthcare professionals if symptoms degrade or persist.*`}`;
-
-        res.json({ text: textOutput });
+        res.status(503).json({
+          error: "No diagnostic provider is configured. Set OMEGA_BACKEND_URL or GEMINI_API_KEY.",
+          code: "DIAGNOSTIC_PROVIDER_UNAVAILABLE",
+        });
+        return;
+        // No provider means no analysis. Never fabricate a medical result.
       }
     } catch (error: any) {
       console.error("[Omega Server] Diagnose error:", error);
@@ -150,6 +144,12 @@ ${containsUrgentKeywords ? `⚠️ **CRITICAL PRIORITY ALARM:** Indicators trigg
   }
 
   app.listen(PORT, "0.0.0.0", () => {
+    console.log(`[Omega Server] Bound and listening on http://0.0.0.0:${PORT}`);
+  });
+}
+
+startServer();
+T, "0.0.0.0", () => {
     console.log(`[Omega Server] Bound and listening on http://0.0.0.0:${PORT}`);
   });
 }
